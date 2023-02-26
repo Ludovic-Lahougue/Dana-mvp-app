@@ -1,17 +1,14 @@
 import { FlatList, StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+import { Text, View } from '../../components/Themed';
 
-export default function HomeScreen() {
+export default function home() {
 
     return (
         <View style={styles.container}>
-            <View style={styles.section}>
-                <Text style={styles.title}>Maintenant</Text>
-            </View>
+            <Text style={styles.title}>Maintenant</Text>
         </View>
-        );
+    );
 }
 
 const styles = StyleSheet.create({
@@ -28,8 +25,5 @@ const styles = StyleSheet.create({
         marginVertical: 30,
         height: 1,
         width: '80%',
-    },
-    section: {
-
     },
 });
