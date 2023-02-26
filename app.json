@@ -1,18 +1,16 @@
 {
   "expo": {
-    "name": "dana-mvp",
-    "slug": "dana-mvp",
+    "name": "dana-mvp-app",
+    "slug": "dana-mvp-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "icon": "./assets/images/icon.png",
+    "scheme": "danamvpapp",
+    "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"
@@ -22,19 +20,14 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
       },
-      "package": "com.dana.danamvp"
+      "package": "com.ludovicl.danamvpapp"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "062197f7-db8c-481b-8a5e-918b46f5a843"
-      }
-    },
-    "owner": "ludovicl"
+      "bundler": "metro",
+      "favicon": "./assets/images/favicon.png"
+    }
   }
 }
