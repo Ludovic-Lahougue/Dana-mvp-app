@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet, Image } from 'react-native';
 
 import { EventType } from '../types/Event';
 import { ExternalLink } from './ExternalLink';
@@ -9,8 +9,15 @@ const windowWidth = Dimensions.get('window').width;
 
 export default function Event({ event }: { event: EventType }) {
     return (
-        <View>
-            <View style={styles.image}></View>
+        <View style={styles.event}>
+            <View style={styles.imageContainer}>
+                <Image
+                    style={styles.image}
+                    source={ event.image}
+                    resizeMode="cover"
+                />
+                <Text style={styles.category}>{event.category.name}</Text>
+            </View>
             <View style={styles.infos}>
                 <Text style={styles.title}>{event.name}</Text>
                 <Text style={styles.time}>6h</Text>
@@ -20,7 +27,10 @@ export default function Event({ event }: { event: EventType }) {
                     <Text style={styles.price}>{event.price}€</Text>
                 :
                     <View style={styles.prices}>
-                        <Text style={styles.oldPrice}>{event.price}€</Text>
+                        <View style={styles.oldPrice}>
+                            <Text style={styles.oldPriceValue}>{event.price}€</Text>
+                            <View style={styles.oldPriceDash}></View>
+                        </View>
                         <Text style={styles.price}>{event.discount}€</Text>
                     </View>
                 }
@@ -31,12 +41,34 @@ export default function Event({ event }: { event: EventType }) {
 }
     
 const styles = StyleSheet.create({
-    image: {
-        padding: windowWidth * .2,
+    event: {
+        width: windowWidth * .35,
+    },
+    imageContainer: {
+        width: '100%',
+        height: windowWidth * .35,
         borderColor: '#000',
         borderRadius: 10,
         borderWidth: 1,
         marginBottom: 5,
+    },
+    image: {
+        flex: 1,
+        borderRadius: 9,
+        width: undefined,
+        height: undefined,
+    },
+    category: {
+        position: 'absolute',
+        top: '10%',
+        backgroundColor: '#00000088',
+        color: '#fff',
+        fontWeight: 'bold',
+        borderWidth: 1,
+        borderLeftWidth: 0,
+        borderTopRightRadius: 5,
+        borderBottomRightRadius: 5,
+        paddingHorizontal: 3
     },
     infos: {
         flexDirection: 'row',
@@ -59,13 +91,21 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     oldPrice: {
-        color: '#999999',
-        textDecorationLine: 'line-through',
-        textDecorationColor: '#000',
-        textDecorationStyle: 'solid',
+        position: 'relative',
         marginRight: 5,
-        fontSize: 12,
+    },
+    oldPriceValue: {
         alignSelf: 'center',
+        color: '#999999',
+        fontSize: 12,
+    },
+    oldPriceDash: {
+        position: 'absolute',
+        top: '40%',
+        left: '0%',
+        width: '100%',
+        backgroundColor: '#ec5d39',
+        height: 1,
     },
     tickets: {
         backgroundColor: '#dcdcdc',
