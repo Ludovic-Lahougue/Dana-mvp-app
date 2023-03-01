@@ -22,22 +22,28 @@ const linking: LinkingOptions<RootStackParamList> = {
                     },
                     Search: {
                         screens: {
-                            TabOneScreen: 'search',
+                            SearchScreen: 'search',
                         },
                     },
                     Tickets: {
                         screens: {
-                            TabTwoScreen: 'tickets',
+                            TicketsScreen: 'tickets',
+                        },
+                    },
+                    Login: {
+                        screens: {
+                            LogInScreen: 'login',
                         },
                     },
                     Profile: {
                         screens: {
-                            TabTwoScreen: 'profile',
+                            ProfileScreen: 'profile',
                         },
                     },
                 },
             },
             Modal: 'modal',
+            EventInfoScreen: 'event',
             NotFound: '*',
         },
     },

@@ -1,13 +1,25 @@
+import { useContext } from 'react';
 import { FlatList, StyleSheet, Image, Dimensions, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 
 import { Text, View } from '../components/Themed';
+import { idUserContext } from '../context/Context';
 import { getUser } from '../services/Api';
+import { RootTabScreenProps } from '../types';
 
 const windowWidth = Dimensions.get('window').width;
 
-export default function ProfileScreen() {
+export default function ProfileScreen({navigation}: RootTabScreenProps<'Profile'>) {
+    // @ts-ignore
+    const [idUser, setIdUser] = useContext(idUserContext);
+
     const defaultImage = require('../assets/images/profile/default.png')
     const user = getUser();
+
+    const logOut = () => {
+        setIdUser(null);
+        navigation.navigate('Home');
+    }
+
     return (
         <ScrollView>
             <View style={styles.container}>
@@ -70,6 +82,7 @@ export default function ProfileScreen() {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.btn}
+                        onPress={logOut}
                     >
                         <Text style={styles.btnText}>Déconnexion</Text>
                     </TouchableOpacity>

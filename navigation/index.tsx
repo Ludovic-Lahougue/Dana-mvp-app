@@ -19,8 +19,12 @@ import NotFoundScreen from '../screens/NotFoundScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import SearchScreen from '../screens/SearchScreen';
 import TicketsScreen from '../screens/TicketsScreen';
+import LoginScreen from '../screens/LoginScreen';
 import { RootStackParamList, RootTabParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import { useContext } from 'react';
+import { idUserContext } from '../context/Context';
+import EventInfoScreen from '../screens/EventInfoScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
     return (
@@ -62,7 +66,8 @@ function RootNavigator() {
         <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
         <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
         <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+            <Stack.Screen name="Modal" component={ModalScreen} />
+            <Stack.Screen name="EventInfoScreen" component={EventInfoScreen}/>
         </Stack.Group>
         </Stack.Navigator>
         );
@@ -77,6 +82,9 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 function BottomTabNavigator() {
     const colorScheme = useColorScheme();
     
+    // @ts-ignore
+    const [idUser, setIdUser] = useContext(idUserContext)
+
     return (
         <BottomTab.Navigator
         initialRouteName="Home"
@@ -111,15 +119,28 @@ function BottomTabNavigator() {
             tabBarIcon: () => <Entypo name="ticket" size={24} color="black" />,
         }}
         />
-        <BottomTab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
-            title: 'Profil',
-            tabBarActiveTintColor: '#331863',
-            tabBarIcon: () => <Ionicons name="person" size={24} color="black" />,
-        }}
-        />
+        { 
+            idUser == null ?
+                <BottomTab.Screen
+                name="Login"
+                component={LoginScreen}
+                options={{
+                    title: 'Connexion',
+                    tabBarActiveTintColor: '#331863',
+                    tabBarIcon: () => <Ionicons name="person" size={24} color="black" />,
+                }}
+                />
+            :
+                <BottomTab.Screen
+                name="Profile"
+                component={ProfileScreen}
+                options={{
+                    title: 'Profil',
+                    tabBarActiveTintColor: '#331863',
+                    tabBarIcon: () => <Ionicons name="person" size={24} color="black" />,
+                }}
+                />
+        }
         </BottomTab.Navigator>
     );
 }

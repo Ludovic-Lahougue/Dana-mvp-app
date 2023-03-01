@@ -1,5 +1,6 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Dimensions, StyleSheet, Image } from 'react-native';
+import { Dimensions, StyleSheet, Image, Pressable } from 'react-native';
 
 import { EventType } from '../types/Event';
 import { ExternalLink } from './ExternalLink';
@@ -8,8 +9,13 @@ import { Text, View } from './Themed';
 const windowWidth = Dimensions.get('window').width;
 
 export default function Event({ event }: { event: EventType }) {
+    const navigation = useNavigation();
+
     return (
-        <View style={styles.event}>
+        <Pressable
+            style={styles.event}
+            onPress={() => navigation.navigate('EventInfoScreen', {event: event})}
+        >
             <View style={styles.imageContainer}>
                 <Image
                     style={styles.image}
@@ -36,7 +42,7 @@ export default function Event({ event }: { event: EventType }) {
                 }
                 <Text style={styles.tickets}>{event.tickets} place{event.tickets == 1 ? '' : 's'}</Text>
             </View>
-        </View>
+        </Pressable>
         );
 }
     

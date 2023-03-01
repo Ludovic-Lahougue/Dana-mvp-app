@@ -6,7 +6,8 @@ export type EventType = {
     category: categoryEvent,
     price?: number,
     discount?: number|null,
-    date?: string,
+    date?: any,
     tickets?: number,
     image?: any,
+    resume?: string,
 }

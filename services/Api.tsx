@@ -3,6 +3,10 @@ import { EventType } from "../types/Event";
 import { StructureType } from "../types/Structure";
 import { UserType } from "../types/User";
 
+import Moment from 'moment';
+
+Moment.locale('fr');
+
 const categoriesEvent: categoryEvent[] = [
     {
         id: 1,
@@ -64,9 +68,10 @@ const events: EventType[] = [
         category: categoriesEvent[0],
         price: 6,
         discount: 4,
-        date: Date(),
+        date: Moment(),
         tickets: 2,
-        image: require('../assets/images/events/gagarine.jpg')
+        image: require('../assets/images/events/gagarine.jpg'),
+        resume: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus felis vitae nulla consectetur volutpat. Donec vitae urna non nibh lacinia ultrices. Etiam sollicitudin auctor nibh, ac consequat erat. Quisque ut sagittis ante. Morbi aliquam, nulla sed ullamcorper porta, justo erat auctor sapien, non volutpat est tellus vel dui. Phasellus pellentesque lectus ac ex aliquet dictum. Maecenas at tellus vestibulum, ultrices augue a, lacinia nulla. Nam placerat auctor ipsum ac accumsan. In mattis lacus lectus, eu malesuada nunc molestie a. Nunc quis est augue. Quisque consequat massa eget ornare mattis. Aliquam turpis leo, ornare at orci non, malesuada sollicitudin risus. Nulla pulvinar, purus id dapibus efficitur, orci nunc venenatis elit, aliquet suscipit metus nibh in neque. Nulla molestie gravida dui ut tincidunt. "
     },
     {
         id: 2,
@@ -74,9 +79,10 @@ const events: EventType[] = [
         category: categoriesEvent[3],
         price: 20,
         discount: null,
-        date: Date(),
+        date: Moment(),
         tickets: 6,
-        image: require('../assets/images/events/fakear.jpg')
+        image: require('../assets/images/events/fakear.jpg'),
+        resume: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus felis vitae nulla consectetur volutpat. Donec vitae urna non nibh lacinia ultrices. Etiam sollicitudin auctor nibh, ac consequat erat. Quisque ut sagittis ante. Morbi aliquam, nulla sed ullamcorper porta, justo erat auctor sapien, non volutpat est tellus vel dui. Phasellus pellentesque lectus ac ex aliquet dictum. Maecenas at tellus vestibulum, ultrices augue a, lacinia nulla. Nam placerat auctor ipsum ac accumsan. In mattis lacus lectus, eu malesuada nunc molestie a. Nunc quis est augue. Quisque consequat massa eget ornare mattis. Aliquam turpis leo, ornare at orci non, malesuada sollicitudin risus. Nulla pulvinar, purus id dapibus efficitur, orci nunc venenatis elit, aliquet suscipit metus nibh in neque. Nulla molestie gravida dui ut tincidunt. "
     },
     {
         id: 3,
@@ -84,9 +90,10 @@ const events: EventType[] = [
         category: categoriesEvent[3],
         price: 36,
         discount: 30,
-        date: Date(),
+        date: Moment(),
         tickets: 10,
-        image: require('../assets/images/events/fakear.jpg')
+        image: require('../assets/images/events/fakear.jpg'),
+        resume: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus felis vitae nulla consectetur volutpat. Donec vitae urna non nibh lacinia ultrices. Etiam sollicitudin auctor nibh, ac consequat erat. Quisque ut sagittis ante. Morbi aliquam, nulla sed ullamcorper porta, justo erat auctor sapien, non volutpat est tellus vel dui. Phasellus pellentesque lectus ac ex aliquet dictum. Maecenas at tellus vestibulum, ultrices augue a, lacinia nulla. Nam placerat auctor ipsum ac accumsan. In mattis lacus lectus, eu malesuada nunc molestie a. Nunc quis est augue. Quisque consequat massa eget ornare mattis. Aliquam turpis leo, ornare at orci non, malesuada sollicitudin risus. Nulla pulvinar, purus id dapibus efficitur, orci nunc venenatis elit, aliquet suscipit metus nibh in neque. Nulla molestie gravida dui ut tincidunt. "
     },
 ];
 
