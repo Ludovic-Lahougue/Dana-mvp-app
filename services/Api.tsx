@@ -1,29 +1,36 @@
 import { categoryEvent, categoryStructure } from "../types/Category";
 import { EventType } from "../types/Event";
 import { StructureType } from "../types/Structure";
+import { UserType } from "../types/User";
 
 const categoriesEvent: categoryEvent[] = [
     {
+        id: 1,
         name: 'Cinéma',
         image: require('../assets/images/cinema.jpg')
     },
     {
+        id: 2,
         name: 'Théatre',
         image: require('../assets/images/theater.jpg')
     },
     {
+        id: 3,
         name: 'Danse',
         image: require('../assets/images/danse.jpg')
     },
     {
+        id: 4,
         name: 'Concert',
         image: require('../assets/images/concert.jpg')
     },
     {
+        id: 5,
         name: 'Jeune public',
         image: require('../assets/images/jeune_public.jpg')
     },
     {
+        id: 6,
         name: 'Atelier',
         image: require('../assets/images/workshop.jpg')
     },
@@ -52,6 +59,7 @@ const categoriesStructure: categoryStructure[] = [
 
 const events: EventType[] = [
     {
+        id: 1,
         name: 'Gagarine',
         category: categoriesEvent[0],
         price: 6,
@@ -61,6 +69,7 @@ const events: EventType[] = [
         image: require('../assets/images/events/gagarine.jpg')
     },
     {
+        id: 2,
         name: 'Fakear + Le Bag',
         category: categoriesEvent[3],
         price: 20,
@@ -70,6 +79,7 @@ const events: EventType[] = [
         image: require('../assets/images/events/fakear.jpg')
     },
     {
+        id: 3,
         name: 'Titre 3',
         category: categoriesEvent[3],
         price: 36,
@@ -82,6 +92,7 @@ const events: EventType[] = [
 
 const structures: StructureType[] = [
     {
+        id: 1,
         name: 'Structure 1',
         category: categoriesStructure[0],
         address: 'xx rue xxxx xxxx',
@@ -93,6 +104,7 @@ const structures: StructureType[] = [
         image: require('../assets/images/structures/lux.jpg')
     },
     {
+        id: 2,
         name: 'Structure 2',
         category: categoriesStructure[1],
         address: 'xx rue xxxx xxxx',
@@ -105,11 +117,25 @@ const structures: StructureType[] = [
     },
 ];
 
+const user: UserType = {
+    id: 1,
+    firstname: 'Michel',
+    lastname: 'Dupont',
+    birthday: '10/06/1963',
+    phone: '0672836193',
+    email: 'michel@gmail.com',
+    password: 'michel',
+}
+
 export function nextEventsApi() {
     return events;
 }
 
 export function eventsApi() {
+    return events;
+}
+
+export function ticketsApi() {
     return events;
 }
 
@@ -119,4 +145,8 @@ export function structuresApi() {
 
 export function categoriesApi() {
     return categoriesEvent;
+}
+
+export function getUser() {
+    return user;
 }

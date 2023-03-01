@@ -89,6 +89,7 @@ function BottomTabNavigator() {
         component={HomeScreen}
         options={{
             title: 'Accueil',
+            tabBarActiveTintColor: '#331863',
             tabBarIcon: () => <AntDesign name="home" size={24} color="black" />,
         }}
         />
@@ -97,6 +98,7 @@ function BottomTabNavigator() {
         component={SearchScreen}
         options={{
             title: 'Recherche',
+            tabBarActiveTintColor: '#331863',
             tabBarIcon: () => <AntDesign name="search1" size={24} color="black" />,
         }}
         />
@@ -105,6 +107,7 @@ function BottomTabNavigator() {
         component={TicketsScreen}
         options={{
             title: 'Billets',
+            tabBarActiveTintColor: '#331863',
             tabBarIcon: () => <Entypo name="ticket" size={24} color="black" />,
         }}
         />
@@ -113,6 +116,7 @@ function BottomTabNavigator() {
         component={ProfileScreen}
         options={{
             title: 'Profil',
+            tabBarActiveTintColor: '#331863',
             tabBarIcon: () => <Ionicons name="person" size={24} color="black" />,
         }}
         />
@@ -129,7 +133,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     image: {
-        width: '30%',
+        width: '35%',
         resizeMode: 'contain'
     },
     input: {
@@ -141,7 +145,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 5,
         position: 'relative',
         width: '60%',
-        alignSelf: 'center',
         borderWidth: 1,
         borderRadius: 20,
     },

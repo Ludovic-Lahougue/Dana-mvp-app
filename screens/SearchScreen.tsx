@@ -46,6 +46,8 @@ export default function SearchScreen() {
                 }
             </View>
 
+            <Text style={styles.sort}>Trier par :</Text>
+
             <FlatList
                 data={events}
                 renderItem={renderEvent}
@@ -88,5 +90,9 @@ const styles = StyleSheet.create({
     },
     textTabActive: {
         color: '#fff',
+    },
+    sort: {
+        marginBottom: 10,
+        fontSize: 20,
     }
 });
